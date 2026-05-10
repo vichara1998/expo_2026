@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 // import { LinearGradient } from "expo-linear-gradient";
 
 export default function Home() {
@@ -25,16 +25,16 @@ export default function Home() {
         {darkMode ? "Dark Mode" : "Light Mode"}
       </Text>
 
-
-      <View style={[
-        styles.buttonRow,
-        {
-          backgroundColor: darkMode ? "#000" : "#fff",
-          borderColor: darkMode ? "#fff" :  "#000",
-        },
-      ]}
+      <View
+        style={[
+          styles.buttonRow,
+          {
+            backgroundColor: darkMode ? "#000" : "#fff",
+            borderColor: darkMode ? "#fff" : "#000",
+          },
+        ]}
       >
-      {/* <LinearGradient
+        {/* <LinearGradient
         colors={[
           "rgba(0,150,255,0.2)",
           "rgba(255,0,150,0.2)",
@@ -43,7 +43,6 @@ export default function Home() {
         style={styles.buttonRow}
       > */}
 
-      
         <TouchableOpacity
           style={[styles.button, { backgroundColor: "#c2b9b9" }]}
           onPress={() => setDarkMode(false)}
@@ -57,7 +56,15 @@ export default function Home() {
         >
           <Ionicons name="moon-outline" size={20} color="white" />
         </TouchableOpacity>
-      {/* </LinearGradient> */}
+        {/* </LinearGradient> */}
+      </View>
+      <View>
+        <Image
+          style={styles.tinyLogo}
+          source={{
+            uri: "https://reactnative.dev/img/tiny_logo.png",
+          }}
+        />
       </View>
     </View>
   );
@@ -83,8 +90,13 @@ const styles = StyleSheet.create({
     gap: 5,
     borderRadius: 30,
     borderWidth: 2,
-    
+
     paddingHorizontal: 5,
     paddingVertical: 5,
+  },
+  tinyLogo: {
+    margin: 5,
+    width: 100,
+    height: 100,
   },
 });
