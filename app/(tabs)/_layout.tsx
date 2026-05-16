@@ -1,18 +1,26 @@
-import { Stack } from 'expo-router';
+import { Drawer } from "expo-router/drawer";
+import { Stack } from "expo-router";
 
 export default function Layout() {
   return (
-    <Stack
+    
+
+    
+
+       <Stack
       screenOptions={{
-        headerTitleAlign: 'center', 
+        headerTitleAlign: "center",
       }}
     >
-      <Stack.Screen 
-        name="index" 
-        options={{ 
-          title: 'Home', 
-        }} 
+      <Stack.Screen
+        name="index"
+        options={{
+          title: "Home",
+          headerShown:false
+        }}
       />
-    </Stack>
+        </Stack> 
+      
+    
   );
 }

@@ -2,6 +2,9 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 // import { LinearGradient } from "expo-linear-gradient";
+import Login from "./login";
+import { router } from "expo-router";
+import { Button, Card } from 'react-native-paper';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -12,9 +15,21 @@ export default function Home() {
         styles.container,
         {
           backgroundColor: darkMode ? "#000" : "#fff",
+          
         },
       ]}
     >
+<Card>
+        <Card.Content>
+          <Text >Paper Working </Text>
+          <Button mode="contained" onPress={() => console.log('Clicked')}>
+            Click Me
+          </Button>
+        </Card.Content>
+      </Card>
+
+
+
       <Text
         style={{
           color: darkMode ? "#ffffff" : "#000",
@@ -66,6 +81,22 @@ export default function Home() {
           }}
         />
       </View>
+      <TouchableOpacity
+        onPress={() => router.push("/login")}
+        style={{ marginTop: 20, padding: 10, backgroundColor: "blue" }}
+      >
+        <Text style={{ color: "white" }}>Go to Login</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => router.push("/register")}
+        style={{ marginTop: 20, padding: 10, backgroundColor: "blue" }}
+      >
+        <Text style={{ color: "white" }}>Go to Register</Text>
+      </TouchableOpacity>
+      <View >
+        {/* <Login darkMode={ darkMode } /> */}
+      </View>
     </View>
   );
 }
@@ -75,6 +106,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: "center",
     alignItems: "center",
+    
   },
 
   button: {
@@ -98,5 +130,11 @@ const styles = StyleSheet.create({
     margin: 5,
     width: 100,
     height: 100,
+    borderWidth: 2 ,
+    borderColor: '#1765f5',
+    borderRadius: 50
+  },
+  login: {
+    color: '#fff'
   },
 });
